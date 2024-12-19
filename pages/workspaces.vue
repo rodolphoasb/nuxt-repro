@@ -3,5 +3,5 @@ const { user } = useUserData();
 </script>
 
 <template>
-  <div>Workspaces</div>
+  <div>Workspaces {{ user?.id }}</div>
 </template>

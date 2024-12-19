@@ -1,18 +1,16 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ["vue-clerk/nuxt"],
-  compatibilityDate: "2024-11-01",
+  compatibilityDate: "2024-07-02",
   devtools: { enabled: true },
   nitro: {
     experimental: {
       wasm: true,
     },
   },
-  clerk: {
-    publishableKey: process.env.NUXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
-    signInForceRedirectUrl: "/app/dashboard",
-    signUpForceRedirectUrl: "/app/dashboard",
-    signInUrl: "/app/login",
-    signUpUrl: "/app/login",
+  runtimeConfig: {
+    clerk: {
+      secretKey: process.env.NUXT_CLERK_SECRET_KEY,
+    },
   },
 });

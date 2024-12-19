@@ -1,8 +1,7 @@
 <script setup lang="ts">
 const { user } = useUserData();
-console.log("user", user);
 </script>
 
 <template>
-  <div>Dashboard</div>
+  <div>Dashboard {{ user?.id }}</div>
 </template>

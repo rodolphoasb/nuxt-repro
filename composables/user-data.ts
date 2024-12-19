@@ -1,5 +1,6 @@
 import { useUser } from "vue-clerk";
 import type { User as ClerkUser } from "@clerk/backend";
+import type { UserResource } from "@clerk/types";
 
 export function useUserData() {
   const userData = useState<ClerkUser | null>("user-data", () => null);
@@ -18,8 +19,24 @@ export function useUserData() {
     await refreshUser();
   }
 
+  // clerkUser has additional membership properties. e.g. roles and permissions
+  const user = computed<(ClerkUser & Partial<UserResource>) | null>(() => {
+    if (!userData.value) return null;
+
+    try {
+      return {
+        ...userData.value,
+        ...clerkUser.value,
+      } as ClerkUser & Partial<UserResource>;
+    } catch (_error) {
+      console.error("Error fetching clerk user", _error);
+      return userData.value as ClerkUser & Partial<UserResource>;
+    }
+  });
+
   return {
-    user: clerkUser,
+    user,
     initializeUser,
+    refreshUser,
   };
 }

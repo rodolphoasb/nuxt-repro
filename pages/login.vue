@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { SignIn } from "vue-clerk";
 
-definePageMeta({
-  layout: "blank",
-});
-
 const isSigningIn = ref(false);
 
 onUnmounted(() => {
@@ -17,7 +13,7 @@ onUnmounted(() => {
     <div w-full max-w-1680px mx-auto px-64px grow>
       <div flex items-center justify-center h-full pt-100px>
         <div w-160px />
-        <SignIn force-redirect-url="/app" />
+        <SignIn />
       </div>
     </div>
     <div flex-auto />
