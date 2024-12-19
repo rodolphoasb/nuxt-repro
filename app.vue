@@ -1,5 +1,10 @@
+<script setup lang="ts">
+const { initializeUser } = useUserData();
+await initializeUser();
+</script>
+
 <template>
-  <div>
+  <NuxtLayout>
     <NuxtPage />
-  </div>
+  </NuxtLayout>
 </template>

@@ -10,10 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@clerk/backend": "^1.21.4",
+    "@clerk/backend": "1.18.0",
+    "h3-clerk": "0.5.8",
     "nuxt": "^3.14.1592",
     "vue": "latest",
-    "vue-clerk": "^0.9.9",
+    "vue-clerk": "0.8.1",
     "vue-router": "latest"
   }
 }
